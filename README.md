@@ -7,7 +7,7 @@ VeraCrypt encrypted Windows 10 Systems without need to decrypting them.
 First: I’m not a native English speaker. Pardon me for spelling mistakes.
 
 Hello security aware people,  
-I found a way to Upgrade Windows 10 (Any Version up to the current 1703) without decrypting the System Drive. I tested it on 64Bit Windows with the “entire system drive” encryption in BIOS-Mode and “Windows Partition” encryption in UEFI-Mode. Maybe some of you may try other configurations.
+I found a way to Upgrade Windows 10 (Any Version up to the current 1703) without decrypting the System Drive. I tested it on 64Bit Windows with the “entire system drive” encryption in BIOS-Mode. Maybe some of you may try other configurations.
 
 Note that you can Upgrade any Windows 10 Version direct to the current 1703 without installing the intermediate Versions.
 Below is described how it works. But it’s a bit complicated. I created a Script, that’s do the work.  Also, there is a Video-Tutorial about Script usage and the Upgrade.
