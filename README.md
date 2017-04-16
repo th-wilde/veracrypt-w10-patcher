@@ -7,7 +7,7 @@ VeraCrypt encrypted Windows 10 Systems without need to decrypting them.
 First: I’m not a native English speaker. Pardon me for spelling mistakes.
 
 Hello security aware people,  
-I found a way to Upgrade Windows 10 (Any Version up to the current 1703) without decrypting the System Drive. I tested it on 64Bit Windows with the “entire system drive” encryption in BIOS-Mode. Maybe some of you may try other configurations.
+I found a way to Upgrade Windows 10 (Any Version up to the current 1703) without decrypting the System Drive. I tested it on 64Bit Windows with the “entire system drive” encryption in BIOS-Mode and “Windows Partition” encryption in UEFI-Mode. Maybe some of you may try other configurations… it should also work for 32 bit installations.
 
 Note that you can Upgrade any Windows 10 Version direct to the current 1703 without installing the intermediate Versions.
 Below is described how it works. But it’s a bit complicated. I created a Script, that’s do the work.  Also, there is a Video-Tutorial about Script usage and the Upgrade.
@@ -18,9 +18,17 @@ Script: https://github.com/th-wilde/veracrypt-w10-patcher/archive/master.zip
 
 Place it into the root of a Windows 10 installation media (you can create one via the [media creation tool](https://www.microsoft.com/en-us/software-download/windows10) form Microsoft) and run it with administrator rights. It will patch the VeraCrypt-Driver into it. After completion (this may take a while), run the setup.exe from the root of the installation media and follow the instructions on screen. Don’t boot from the created media! This would end in a normal installation process instead of an upgrade.
 
+*Only on UEFI-Mode:*  
+The Upgrade requires the Windows bootloader entry (which Veracrypt has replaced/removed) in the UEFI firmware (NVRAM) to work properly. To add the entry, boot up a Windows 10 installation media and access the command line by pressing CTRL + F10.  Run following Command:  
+`bcdedit /set {fwbootmgr} displayorder {bootmgr} /addlast`  
+Reboot back to the encrypted Windows OS and start the upgrade.  
+The bootloader entry is never used. Optionally it can be removed with following command from an elevated command line:  
+`bcdedit /set {fwbootmgr} displayorder {bootmgr} /remove`
+
+
 The modified installation media can be used to upgrade multiple Machines. In this case, mind to upgrade the machine to the same VeraCrypt version that the installation media contains. Don’t mix Architectures (64Bit/32Bit) while patching. Use a 64Bit System to Patch a 64Bit installation media and vice versa. 
 
-Video-Tutorial (Shows VeraCrypt in UEFI-Mode): [Link Follows]
+Video-Example/Tutorial (Shows VeraCrypt in UEFI-Mode): [Link Follows]
 
 
 ## The Problem with the Upgrade
