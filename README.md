@@ -28,7 +28,7 @@ The bootloader entry is never used. Optionally it can be removed with following 
 
 The modified installation media can be used to upgrade multiple Machines. In this case, mind to upgrade the machine to the same VeraCrypt version that the installation media contains. Don’t mix Architectures (64Bit/32Bit) while patching. Use a 64Bit System to Patch a 64Bit installation media and vice versa. 
 
-Video-Example/Tutorial (Shows VeraCrypt in UEFI-Mode): [Link Follows]
+Video-Example/Tutorial (Shows VeraCrypt in UEFI-Mode): https://youtu.be/uK-kUTNiWIk
 
 
 ## The Problem with the Upgrade
