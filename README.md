@@ -33,10 +33,14 @@ Video-Example/Tutorial (Shows VeraCrypt in UEFI-Mode): https://youtu.be/uK-kUTNi
 
 ## The Problem with the Upgrade
 The upgrade process is more a reinstall than an update of the Windows 10 OS. This reinstall-mechanism do not work (out of the box) if the Drive/Partition is encrypted with VeraCrypt. I digged around and figured out how the reinstall is done.
+
+
 1.	The Setup copy’s the new Win10 OS (parallel to the running one) on the System drive.
 2.	The Setup generates a “SaveOS” (from the WinRE-Image of the new Win10 OS) that will swap the old Win10 against the new Win10. The setup restarts into this “SaveOS” by changing the Windows-Bootloader configuration (not the Bootloader itself).
 3.	After OS swapping, the “SaveOS” starts the new Win10. This will do initialization like detecting Hardware, installing Drivers and transfer stuff (Driver, Settings, etc.) from the old OS.
 4.	After initialization, the new Win10 OS restarts, do some late work and goes on to the Login-Screen or Desktop.
+
+
 The Problem is Step 2 and 3. The “SaveOS” (Step 2) don’t contain the needed VeraCrypt driver to access the encrypted Partition/Drive. Also, the new Win10 OS on its first start (Step 3) misses the VeraCrypt driver. Booth will cause a rollback of the Upgrade. The System will be stuck at its outdated Version forever.
 
 
