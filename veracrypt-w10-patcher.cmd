@@ -15,13 +15,13 @@ echo.
 echo Some commands done by this script will display error messages.
 echo This is normal behavior and will be handled by the Script.
 echo =============================================================================
-echo Windows 10 Medien Parcher zum Upgraden von VeraCrypt verschlÂsselten Systemen
+echo Windows 10 Medien Parcher zum Upgraden von VeraCrypt verschlsselten Systemen
 echo.
 echo Dieses Script bereitet ein Windows 10 Installationsmedium vor um
-echo VeraCrypt verschlÂsselte Windows 10 Systeme upzugraden, ohne dass diese 
-echo entschlÂsselt werden mÂssen.
+echo VeraCrypt verschlsselte Windows 10 Systeme upzugraden, ohne dass diese 
+echo entschlsselt werden mssen.
 echo.
-echo Einige Befehle, die von diesem Script ausgefÂhrt werden, zeigen
+echo Einige Befehle, die von diesem Script ausgefhrt werden, zeigen
 echo Fehlermeldungen an. Das ist normales Verhalten und wird vom Script behandelt.
 echo =============================================================================
 echo.
@@ -34,9 +34,9 @@ if not "%errorlevel%" == "0" (
 	echo Open the Context-Menu ^(usually  right klick^) for this Script
 	echo and select "Run as Administrator"
 	echo ===================================================================
-	echo Dieses Script benâ€tigt Administratorrechte um zu funktionieren.
-	echo â„¢ffne das KontextmenÂ ^(Âblicherweise Rechtsklick^) fÂr dieses Script
-	echo und wâ€hle "Als Administrator ausfÂhren"
+	echo Dieses Script ben”tigt Administratorrechte um zu funktionieren.
+	echo ™ffne das Kontextmen ^(blicherweise Rechtsklick^) fr dieses Script
+	echo und w„hle "Als Administrator ausfhren"
 	echo ===================================================================
 	echo.
 	pause
@@ -50,10 +50,10 @@ if not exist %SystemRoot%\System32\drivers\veracrypt.sys (
 	echo ^(%SystemRoot%\System32\drivers\veracrypt.sys does not exist.^)
 	echo This preparation must be done on a Machine where VeraCrypt is installed.
 	echo ========================================================================
-	echo Es scheint als wâ€hre VeraCrypt nicht auf dieser Maschine installiert.
+	echo Es scheint als w„hre VeraCrypt nicht auf dieser Maschine installiert.
 	echo ^(%SystemRoot%\System32\drivers\veracrypt.sys existiert nicht.^)
 	echo Diese Vorbereitung muss auf einer Maschine mit installiertem VeraCrypt
-	echo durchgefÂhrt werden.
+	echo durchgefhrt werden.
 	echo ========================================================================
 	echo.
 	pause
@@ -74,7 +74,7 @@ if exist sources\install.wim (
 	echo Start the Windows 10 upgrade by executing setup.exe manually
 	echo ======================================================================
 	echo Vorbereitungen abgeschlossen.
-	echo Starte das Windows 10 Upgrade durch manuelles ausfÂhren der setup.exe.
+	echo Starte das Windows 10 Upgrade durch manuelles ausfhren der setup.exe.
 	echo ======================================================================
 	echo.
 ) else (
@@ -91,7 +91,7 @@ if exist sources\install.wim (
 	echo Ist dieses Script im richtigen Verzeichnis abgelegt?
 	echo Es ist vorgesehen das es im Wurzelverzeichnis eines Windows 10 
 	echo Installationsmediums abgelegt ist und erwartet einen "sources" Verzeichnis
-	echo welches eine install.wim oder install.esd enthâ€lt.
+	echo welches eine install.wim oder install.esd enth„lt.
 	echo ==========================================================================
 	echo.
 )
