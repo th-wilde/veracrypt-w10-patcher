@@ -33,7 +33,7 @@ The modified installation media can be used to upgrade multiple Machines. In thi
 
 **Video-Example/Tutorial:** https://youtu.be/uK-kUTNiWIk
 
-Video shows VeraCrypt in UEFI-Mode on a VirtualBox-VM performing a Upgrade to the "Creators Update" (1703).
+The video shows VeraCrypt in UEFI-Mode on a VirtualBox-VM performing a Upgrade to the "Creators Update" (1703).
 
 **Please feel free to report your (un)successful Upgrade in the ["Hall of Fame"-Issue](https://github.com/th-wilde/veracrypt-w10-patcher/issues/2) or ["Hall of Blame"-Issue](https://github.com/th-wilde/veracrypt-w10-patcher/issues/3) to help other users.**
 
