@@ -3,8 +3,8 @@ This Script prepares a Windows 10 installation media to upgrade
 VeraCrypt encrypted Windows 10 Systems **without the need to decrypting them**.
 
 ## Update
-* **It still works for the new "Fall Creators Update" (Version 1709)!** Tested configuration: 1703 to 1709 Upgrade of 64Bit Windows 10 Pro with the “entire system drive” encryption in BIOS-Mode. 
-
+* **It still works for the new "Fall Creators Update" (Version 1709)!** Tested configuration: 1703 to 1709 Upgrade of 64Bit Windows 10 Pro with the “entire system drive” encryption in BIOS-Mode.
+* Unsure if the Upgrade works for your specific configuration? Check the ["Hall of Fame"-Issue](https://github.com/th-wilde/veracrypt-w10-patcher/issues/2) for reports of successful upgrades and the ["Hall of Blame"-Issue](https://github.com/th-wilde/veracrypt-w10-patcher/issues/3) for unsuccessful upgrades.
 
 ## General
 First: I’m not a native English speaker. Pardon me for spelling mistakes.
@@ -33,6 +33,7 @@ The modified installation media can be used to upgrade multiple Machines. In thi
 
 Video-Example/Tutorial (Shows VeraCrypt in UEFI-Mode on a VirtualBox-VM): https://youtu.be/uK-kUTNiWIk
 
+**Please feel free to report your (un)successful Upgrade in the ["Hall of Fame"-Issue](https://github.com/th-wilde/veracrypt-w10-patcher/issues/2) or ["Hall of Blame"-Issue](https://github.com/th-wilde/veracrypt-w10-patcher/issues/3) to help other users.**
 
 ## The Problem with the Upgrade
 The upgrade process is more a reinstall than an update of the Windows 10 OS. This reinstall-mechanism does not work (out of the box) if the Drive/Partition is encrypted with VeraCrypt. I digged around and figured out how the reinstall is done.
