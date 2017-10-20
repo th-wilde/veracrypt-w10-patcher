@@ -1,18 +1,21 @@
 # Windows 10 media patcher for upgrading VeraCrypt encrypted systems
 This Script prepares a Windows 10 installation media to upgrade
-VeraCrypt encrypted Windows 10 Systems without need to decrypting them.
+VeraCrypt encrypted Windows 10 Systems **without the need to decrypting them**.
+
+## Update
+* **It still works for the new "Fall Creators Update" (Version 1709)!** Tested configuration: 1703 to 1709 Upgrade of 64Bit Windows 10 Pro with the “entire system drive” encryption in BIOS-Mode. 
 
 
 ## General
 First: I’m not a native English speaker. Pardon me for spelling mistakes.
 
 Hello security aware people,  
-I found a way to Upgrade Windows 10 (Any Version up to the current 1703) without decrypting the System Drive. I tested it on 64Bit Windows with the “entire system drive” encryption in BIOS-Mode and “Windows Partition” encryption in UEFI-Mode. Maybe some of you may try other configurations… it should also work for 32 bit installations.
+I found a way to Upgrade Windows 10 (Any Version up to the current ~~1703~~ 1709) without decrypting the System Drive. I tested it on 64Bit Windows with the “entire system drive” encryption in BIOS-Mode and “Windows Partition” encryption in UEFI-Mode. Maybe some of you may try other configurations… it should also work for 32 bit installations.
 
-Note that you can Upgrade any Windows 10 Version direct to the current 1703 without installing the intermediate Versions.
+Note that you can Upgrade any Windows 10 Version direct to the current version without installing the intermediate Versions.
 Below is described how it works. But it’s a bit complicated. I created a Script, that’s do the work.  Also, there is a Video-Tutorial about Script usage and the Upgrade.
 
-Disclaimer: I don’t take any responsibility for whatever happens. Be prepared for the worst-case scenario! (Loss of data)
+**Disclaimer: I don’t take any responsibility for whatever happens. Be prepared for the worst-case scenario! (Loss of data)**
 
 Script: https://github.com/th-wilde/veracrypt-w10-patcher/archive/master.zip
 
@@ -28,11 +31,11 @@ The bootloader entry is never used. Optionally it can be removed with following 
 
 The modified installation media can be used to upgrade multiple Machines. In this case, mind to upgrade the machine to the same VeraCrypt version that the installation media contains. Don’t mix Architectures (64Bit/32Bit) while patching. Use a 64Bit System to Patch a 64Bit installation media and vice versa. 
 
-Video-Example/Tutorial (Shows VeraCrypt in UEFI-Mode): https://youtu.be/uK-kUTNiWIk
+Video-Example/Tutorial (Shows VeraCrypt in UEFI-Mode on a VirtualBox-VM): https://youtu.be/uK-kUTNiWIk
 
 
 ## The Problem with the Upgrade
-The upgrade process is more a reinstall than an update of the Windows 10 OS. This reinstall-mechanism do not work (out of the box) if the Drive/Partition is encrypted with VeraCrypt. I digged around and figured out how the reinstall is done.
+The upgrade process is more a reinstall than an update of the Windows 10 OS. This reinstall-mechanism does not work (out of the box) if the Drive/Partition is encrypted with VeraCrypt. I digged around and figured out how the reinstall is done.
 
 
 1.	The Setup copy’s the new Win10 OS (parallel to the running one) on the System drive.
@@ -50,7 +53,7 @@ Primary it utilizes Windows build-in DISM (Distribution Imaging Servicing and Ma
 Some explanations how its done:
 
 1.  If necessary convert the containing /sources/install.esd (recovery only image) to a /sources/install.wim (common windows image).
-    1.  The install.esd contains usually 3 OS-Images. Win10 Pro, Win10 Core (aka Home), Win10 Education (variant of Enterprise that do not contain the MS-Bloatware). Containing Images can be shown by “dism /Get-WimInfo /wimFile:C:\Path\to\install.esd”.
+    1.  The install.esd contains usually multiple OS-Images. (A Image for each edition and variant of Windows 10. For the "Fall Creators Update" the "Media Cration Tool"-Media contains 8 Images. 4 editions (Pro, Core [aka Home], Education and the new "S"-Edition) times 2 variants (Normal and the "N"-variant [witch comes without media playback support - i.e. without the windows media player - for legal reasons]. All OS-Images must be present inside the install.wim or the setup will not allow a Upgrade. Containing Images can be shown by “dism /Get-WimInfo /wimFile:C:\Path\to\install.esd”.
     2.  Extract every displayed OS-Image in there index-order into one install.wim. This can be done by repeating this with ascending index-numbers  “dism /image-extract /souceImage: C:\Path\to\install.esd /souceIndex:[Index-Number] /destinationImage: C:\Path\to\install.wim”
     3.  Delete the install.esd-File. 
 2.  Inject the Veracrypt-Driver into the OS-Images inside the install.wim
