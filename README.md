@@ -2,7 +2,7 @@
 This script prepares a Windows 10 installation media to upgrade VeraCrypt-encrypted Windows 10 systems **without the need to decrypt them**.
 
 ## Update
-* **It still works for the new "Fall Creators Update" (Version 1709)!** Tested configuration: 1703 to 1709 Upgrade of 64-bit Windows 10 Pro with the “entire system drive” encryption in BIOS mode.
+* **It still works for the new "Fall Creators Update" (Version 1709)!** Tested configuration: 1703 to 1709 upgrade of 64-bit Windows 10 Pro with the “entire system drive” encryption in BIOS mode.
 * Unsure if the upgrade works for your specific configuration? Check the ["Hall of Fame"-Issue](https://github.com/th-wilde/veracrypt-w10-patcher/issues/2) for reports of successful upgrades and the ["Hall of Blame"-Issue](https://github.com/th-wilde/veracrypt-w10-patcher/issues/3) for unsuccessful upgrades.
 
 ## General
@@ -11,17 +11,17 @@ First: I’m not a native English speaker. Pardon me for spelling mistakes.
 Hello, security-aware people,  
 I found a way to upgrade Windows 10 (any version up to the current ~~1703~~ 1709) without decrypting the System Drive. I tested it on 64-bit Windows with the “entire system drive” encryption in BIOS mode and “Windows Partition” encryption in UEFI mode. Maybe some of you may try other configurations… it should also work for 32-bit installations.
 
-Note that you can upgrade any Windows 10 version direct to the current version without installing the intermediate versions.
+Note that you can upgrade any Windows 10 version directly to the current version without installing the intermediate versions.
 How it works is described below, but it’s a bit complicated. I created a script that does the work. Also, there is a video tutorial about script usage and the upgrade.
 
 **Disclaimer: I don’t take any responsibility for whatever happens. Be prepared for the worst-case scenario! (Loss of data)**
 
 Script: https://github.com/th-wilde/veracrypt-w10-patcher/archive/master.zip
 
-Place it into the root of a Windows 10 installation media (you can create one via the [media creation tool](https://www.microsoft.com/en-us/software-download/windows10) form Microsoft) and run it with administrator rights. It will patch the VeraCrypt driver into it. After completion (this may take a while), run the setup.exe from the root of the installation media and follow the instructions on screen. Don’t boot from the created media! This would end in a normal installation process instead of an upgrade.
+Place the script into the root of a Windows 10 installation media (You can create one using the [media creation tool](https://www.microsoft.com/en-us/software-download/windows10) from Microsoft.) and run it with administrator rights. The script will patch the VeraCrypt driver into the installation media. After completion (This may take a while.), run the setup.exe from the root of the installation media and follow the instructions on screen. Don’t boot from the created media! This would end in a normal installation process instead of an upgrade.
 
 >*Only on UEFI mode:*  
->The upgrade requires the Windows bootloader entry (which VeraCrypt has replaced/removed) in the UEFI firmware (NVRAM) to work properly. To add the entry, boot up a Windows 10 installation media and access the command line by pressing CTRL + F10.  Run the following command:  
+>To work properly, the upgrade requires the Windows bootloader entry (which VeraCrypt has replaced/removed) to be present in the UEFI firmware (in NVRAM). To add the entry, boot up a Windows 10 installation media and access the command line by pressing CTRL + F10.  Run the following command:  
 >`bcdedit /set {fwbootmgr} displayorder {bootmgr} /addlast`  
 >Reboot back to the encrypted Windows OS and start the upgrade.  
 >The bootloader entry is never used. Optionally it can be removed with following command from an elevated command line:  
@@ -41,12 +41,12 @@ The upgrade process is more a reinstall than an update of the Windows 10 OS. Thi
 
 
 1.	The Setup copies the new Win10 OS (parallel to the running one) on the System drive.
-2.	The Setup generates a “SaveOS” (from the WinRE-Image of the new Win10 OS) that will swap the old Win10 against the new Win10. The setup restarts into this “SaveOS” by changing the Windows-Bootloader configuration (not the Bootloader itself).
+2.	The Setup generates a “SaveOS” (from the WinRE image of the new Win10 OS) that will swap the old Win10 against the new Win10. The setup restarts into this “SaveOS” by changing the Windows bootloader *configuration* (not the bootloader itself).
 3.	After OS swapping, the “SaveOS” starts the new Win10. This will do initialization, such as detecting hardware, installing drivers and transferring stuff (driver, settings, etc.) from the old OS.
 4.	After initialization, the new Win10 OS restarts, does some final work and goes on to the login screen or desktop.
 
 
-The problem is Step 2 and 3. The “SaveOS” (Step 2) doesn’t contain the needed VeraCrypt driver to access the encrypted partition/drive. Also, the new Win10 OS on its first start (Step 3) misses the VeraCrypt driver. Both will cause a rollback of the upgrade. The system will be stuck at its outdated version forever.
+The problem is Steps 2 and 3. The “SaveOS” (Step 2) doesn’t contain the needed VeraCrypt driver to access the encrypted partition/drive. Also, the new Win10 OS on its first start (Step 3) misses the VeraCrypt driver. Both will cause a rollback of the upgrade. The system will be stuck at its outdated version forever.
 
 
 ## What does the script do?
@@ -62,7 +62,7 @@ Some explanations of how its done:
     1.  Mount a OS image into a folder via “dism /mountWim /WimFile: C:\Path\to\install.wim /index:[index-number] /MountDir:C:\path\to\mount”
     2.  Inject the VeraCyrpt driver by copying it from the running OS (C:\Windows\System32\Drivers\veracrypt.sys) into the mounted OS image
     3.  Update the registry (HKLM\System Hive) of the OS image to load the VeraCrypt driver by temporarily adding the C:\path\to\mount\Windows\System32\config\SYSTEM structure and importing necessary keys.
-    4.  Inject the VeraCrypt driver into the WinRE image located under \Windows\System32\Recovery\WinRe.wim inside the OS image. The process is the same as for the OS images (Steps i,ii,iii,v). Dism can mount different images into different Folders at the same time.
+    4.  Inject the VeraCrypt driver into the WinRE image located under \Windows\System32\Recovery\WinRe.wim inside the OS image. The process is the same as for the OS images (Steps i,ii,iii,v). DISM can mount different images into different folders at the same time.
     5.  Unmount the OS image via “dism /unmountwim /mountdir: C:\path\to\mount /commit”
 3.  Run the setup.exe and follow the instructions on screen. The upgrade should now work normally.
 
