@@ -69,3 +69,6 @@ Some explanations of how its done:
 
 It’s either black magic or easy going. This is just an overview of how it works. For details, check the script.
 Enjoy your up-to-date “Windows as a Service”.
+
+## Credits
+Special thanks to christopher-ursich for proofreading and correcting. 
