@@ -71,4 +71,4 @@ It’s either black magic or easy going. This is just an overview of how it work
 Enjoy your up-to-date “Windows as a Service”.
 
 ## Credits
-Special thanks to christopher-ursich for proofreading and correcting. 
+Special thanks to **christopher-ursich** for proofreading and correcting. 
