@@ -21,7 +21,7 @@ Script: https://github.com/th-wilde/veracrypt-w10-patcher/archive/master.zip
 Place the script into the root of a Windows 10 installation media (You can create one using the [media creation tool](https://www.microsoft.com/en-us/software-download/windows10) from Microsoft.) and run it with administrator rights. The script will patch the VeraCrypt driver into the installation media. After completion (This may take a while.), run the setup.exe from the root of the installation media and follow the instructions on screen. Don’t boot from the created media! This would end in a normal installation process instead of an upgrade.
 
 >*Only on UEFI mode:*  
->To work properly, the upgrade requires the Windows bootloader entry (which VeraCrypt has replaced/removed) to be present in the UEFI firmware (in NVRAM). To add the entry, boot up a Windows 10 installation media and access the command line by pressing CTRL + F10.  Run the following command:  
+>The upgrade requires the Windows bootloader entry (which VeraCrypt has replaced/removed) in the UEFI firmware (NVRAM) to work properly. To add the entry, boot up a Windows 10 installation media and access the command line by pressing SHIFT + F10.  Run the following command:  
 >`bcdedit /set {fwbootmgr} displayorder {bootmgr} /addlast`  
 >Reboot back to the encrypted Windows OS and start the upgrade.  
 >The bootloader entry is never used. Optionally it can be removed with following command from an elevated command line:  
