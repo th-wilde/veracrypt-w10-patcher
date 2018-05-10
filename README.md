@@ -2,7 +2,7 @@
 This script prepares a Windows 10 installation media to upgrade VeraCrypt-encrypted Windows 10 systems **without the need to decrypt them**.
 
 ## Update
-* **It still works for the new "Fall Creators Update" (Version 1709)!** Tested configuration: 1703 to 1709 upgrade of 64-bit Windows 10 Pro with the “entire system drive” encryption in BIOS mode.
+* **It still works for the new "Windows 10 April Update" (Version 1803)!** Tested configuration: 1709 to 1803 upgrade of 64-bit Windows 10 Pro with the “entire system drive” encryption in BIOS mode.
 * Unsure if the upgrade works for your specific configuration? Check the ["Hall of Fame"-Issue](https://github.com/th-wilde/veracrypt-w10-patcher/issues/2) for reports of successful upgrades and the ["Hall of Blame"-Issue](https://github.com/th-wilde/veracrypt-w10-patcher/issues/3) for unsuccessful upgrades.
 
 ## General
