@@ -114,11 +114,20 @@ goto :eof
 	mkdir mounted-install-wim
 	mkdir mounted-winre-wim
 
+	DISM.exe /English /Get-WimInfo /WimFile:sources\install.wim |find /i "Index :" /c > NumberofImages.txt
+	(set /p NumberofImages=)<NumberofImages.txt
+	del NumberofImages.txt
+	echo %NumberofImages% images in total.
+	echo.
+
 	set imageIndex=0
 	:loopImagesPatch
+	
 	set /a imageIndex=imageIndex+1 >NUL
+	if %imageIndex% gtr %NumberofImages% goto loopImagesPatchEnd
+	echo Patching image Index : %imageIndex%
+	
 	DISM.exe /Mount-Wim /WimFile:sources\install.wim /index:%imageIndex% /MountDir:mounted-install-wim
-	if not "%errorlevel%" == "0" goto loopImagesPatchEnd
 	DISM.exe /Mount-Wim /WimFile:mounted-install-wim\Windows\System32\Recovery\winre.wim /index:1 /MountDir:mounted-winre-wim
 	
 	copy %SystemRoot%\System32\drivers\veracrypt.sys mounted-install-wim\Windows\System32\drivers\veracrypt.sys
@@ -179,12 +188,21 @@ goto :eof
 	echo Umwandeln der install.esd zu einer install.wim
 	echo ==============================================
 	echo.
-
+	
+	DISM.exe /English /Get-WimInfo /WimFile:sources\install.esd |find /i "Index :" /c > NumberofImages.txt
+	(set /p NumberofImages=)<NumberofImages.txt
+	del NumberofImages.txt
+	echo %NumberofImages% images in total.
+	echo.
+	
 	set imageIndex=0
 	:loopImagesConvert
 	set /a imageIndex=imageIndex+1 >NUL
+	if %imageIndex% gtr %NumberofImages% goto loopImagesConvertEnd
+	
+	echo Converting image Index : %imageIndex%
+	
 	DISM.exe /Export-Image /SourceImageFile:sources\install.esd /SourceIndex:%imageIndex% /DestinationImageFile:sources\install.wim /Compress:max /CheckIntegrity
-	if not "%errorlevel%" == "0" goto loopImagesConvertEnd
 	goto loopImagesConvert
 	:loopImagesConvertEnd
 	del sources\install.esd
