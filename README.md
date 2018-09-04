@@ -18,7 +18,7 @@ How it works is described below, but it’s a bit complicated. I created a scrip
 
 Script: https://github.com/th-wilde/veracrypt-w10-patcher/archive/master.zip
 
-Place the script into the root of a Windows 10 installation media (You can create one using the [media creation tool](https://www.microsoft.com/en-us/software-download/windows10) from Microsoft.) and run it with administrator rights. The script will patch the VeraCrypt driver into the installation media. After completion (This may take a while.), run the setup.exe from the root of the installation media and follow the instructions on screen. Don’t boot from the created media! This would end in a normal installation process instead of an upgrade.
+Place the script into the root of a Windows 10 installation media (You can create one using the [media creation tool](https://www.microsoft.com/en-us/software-download/windows10) from Microsoft - use the ISO variant and decompress the .iso file.) and run it with administrator rights. The script will patch the VeraCrypt driver into the installation media. After completion (This may take a while.), run the setup.exe from the root of the installation media and follow the instructions on screen. Don’t boot from the created media! This would end in a normal installation process instead of an upgrade.
 
 >*Only on UEFI mode:*  
 >The upgrade requires the Windows bootloader entry (which VeraCrypt has replaced/removed) in the UEFI firmware (NVRAM) to work properly. To add the entry, boot up a Windows 10 installation media and access the command line by pressing SHIFT + F10.  Run the following command:  
