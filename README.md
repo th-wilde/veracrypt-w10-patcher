@@ -27,9 +27,9 @@ This argument tells the setup where the driver for the encryption can be found. 
 
 To Upgrade you need:
 1. A Windows 10 installation media of the version to witch the machine should be upgraded to. 
-   *Usually, the latest version can be obtained with the [media creation tool](https://www.microsoft.com/en-us/software-download/windows10) from Microsoft.*
+   * *Usually, the latest version can be obtained with the [media creation tool](https://www.microsoft.com/en-us/software-download/windows10) from Microsoft.*
 2. At least version 1.23 of VeraCrypt.
-   *You can update your VeraCrypt by simply installing the newer version.*
+   * *You can update your VeraCrypt by simply installing the newer version.*
 
 Start the Upgrade you have to do:
 1. Open a CMD (command line) or a PowerShell with administrator rights.
