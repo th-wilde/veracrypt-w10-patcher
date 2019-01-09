@@ -36,7 +36,7 @@ Start the upgrade by:
 2. Navigate directories to the Windows 10 installation media.
 3. Start "setup.exe" with following line:
    `.\setup.exe /ReflectDrivers "C:\Program Files\VeraCrypt" /PostOOBE C:\ProgramData\VeraCrypt\SetupComplete.cmd`
-   *Adjust the "C:\Program Files\VeraCrypt" path, if your VeraCrypt is installed in a different place.*
+   * *Adjust the "C:\Program Files\VeraCrypt" path, if your VeraCrypt is installed in a different place.*
 4. Follow the instructions on screen.
 
 ### About the additional "/PostOOBE"-option and upgrades via Windows Update
@@ -46,6 +46,7 @@ Manually running `C:\ProgramData\VeraCrypt\SetupComplete.cmd` once (with adminis
 
 
 **Please feel free to report your (un)successful Upgrade in the ["Hall of Fame"-Issue](https://github.com/th-wilde/veracrypt-w10-patcher/issues/2) or ["Hall of Blame"-Issue](https://github.com/th-wilde/veracrypt-w10-patcher/issues/3) to help other users.**
+
 Enjoy your up-to-date “Windows as a Service”.
 
 ## The original Windows 10 media patcher method
