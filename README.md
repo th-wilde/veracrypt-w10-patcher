@@ -31,7 +31,7 @@ To Upgrade you need:
 2. At least version 1.23 of VeraCrypt.
    * *You can update your VeraCrypt by simply installing the newer version.*
 
-Start the Upgrade you have to do:
+Start the upgrade by:
 1. Open a CMD (command line) or a PowerShell with administrator rights.
 2. Navigate directories to the Windows 10 installation media.
 3. Start "setup.exe" with following line:
