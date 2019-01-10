@@ -16,7 +16,7 @@ Hello, security-aware people,
 since the last wave of Windows 10 upgrades, a new way to upgrade has emerged. With version [1.23](https://github.com/veracrypt/VeraCrypt/releases/tag/VeraCrypt_1.23), VeraCrypt supports the [ReflectDrivers mechanism](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-command-line-options). This mechanism was introduced by Version 1607 of Windows 10 to enable 3rd party encryption solutions (like VeraCrypt) to upgrade without decryption. This way is more elegant than my previous solution and should be preferred if possible.
 
 Unfortunately there is no official manual by VeraCrypt for this. Probably because it's similar problematic and risky like my original solution.
-So here is a how to upgrade using this method. If this don't suite your needs, the original [Windows 10 media patcher method](#the-original-windows-10-media-patcher-method) is still works!
+So here is a how to upgrade using this method. If this don't suite your needs, the original [Windows 10 media patcher method](#the-original-windows-10-media-patcher-method) still works!
 
 **Disclaimer: I don’t take any responsibility for whatever happens. Be prepared for the worst-case scenario! (Loss of data)**
 
