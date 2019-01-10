@@ -23,7 +23,7 @@ So here is a how to upgrade using this method. If this don't suite your needs, t
 ## Upgrading with the ReflectDrivers mechanism
 
 The name "ReflectDrivers" comes from the ["/ReflectDrivers" command line option](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-command-line-options) that can be passed to the "setup.exe" of any Windows 10 installation media since version 1607.
-This argument tells the setup where the driver for the encryption can be found. This allows the setup to integrate of the encryption drivers into the upgrade process.
+This argument tells the setup where the driver for the encryption can be found. This allows the setup to integrate the encryption drivers into the upgrade process.
 
 To Upgrade you need:
 1. A Windows 10 installation media of the version to witch the machine should be upgraded to. 
