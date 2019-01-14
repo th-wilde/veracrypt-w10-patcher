@@ -3,7 +3,7 @@ This script prepares a Windows 10 installation media to upgrade VeraCrypt-encryp
 
 ## Update
 
-* **[VeraCrypt 1.23](https://github.com/veracrypt/VeraCrypt/releases/tag/VeraCrypt_1.23)** now supports the [ReflectDrivers mechanism](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-command-line-options) to perform upgrades of the Windows 10 without decrypting.
+* **[VeraCrypt 1.23](https://github.com/veracrypt/VeraCrypt/releases/tag/VeraCrypt_1.23)** now supports the [ReflectDrivers mechanism](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-command-line-options) to perform upgrades of Windows 10 without decrypting.
   Continue reading to learn more about it.
 
 * **The patcher still works for the new "Windows 10 October Update" (Version 1809)!** Usual, setups using BIOS/[UEFI+CSM](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface#CSM) do well while regular UEFI setups tends to cause trouble.
